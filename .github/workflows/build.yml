@@ -14,3 +14,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: mxschmitt/action-tmate@v3
+
+  debug-freebsd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vmactions/freebsd-vm@v1
+        with:
+          copyback: false
+          release: "14.2"
+      - shell: freebsd {0}
+        run: set -ex && pkg update && pkg install -y git
+      - run: echo "connect with 'ssh freebsd'"
+      - uses: mxschmitt/action-tmate@v3
