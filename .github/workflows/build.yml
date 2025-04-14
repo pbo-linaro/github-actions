@@ -15,6 +15,15 @@ jobs:
     steps:
       - uses: mxschmitt/action-tmate@v3
 
+  # https://github.com/mxschmitt/action-tmate/issues/216
+  debug-windows-11-arm:
+    runs-on: windows-11-arm
+    steps:
+    - uses: msys2/setup-msys2@v2
+    - uses: mxschmitt/action-tmate@v3
+      with:
+        msys2-location: ${{ steps.setup-msys2.outputs.msys2-location }}
+
   debug-freebsd:
     runs-on: ubuntu-latest
     steps:
