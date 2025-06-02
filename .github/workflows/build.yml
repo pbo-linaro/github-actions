@@ -25,6 +25,7 @@ jobs:
         msystem: 'CLANGARM64'
         location: C:\.\
     - uses: mxschmitt/action-tmate@v3
+    # To open CLANGARM64 shell: env MSYSTEM=CLANGARM64 bash -l
 
   debug-freebsd:
     runs-on: ubuntu-latest
